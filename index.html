@@ -3,64 +3,98 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chat Assistant</title>
+    <title>L'ORÉAL — Smart Routine &amp; Product Advisor</title>
+
+    <!-- Google Fonts: Playfair Display (headings) + Nunito Sans (body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Nunito+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap"
       rel="stylesheet"
     />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap"
-      rel="stylesheet"
-    />
+
     <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
-    <div class="page-wrapper">
-      <!------- Header / Branding ------->
-      <header class="site-header">
-        <h1 class="site-title">Smart Product Advisor</h1>
-      </header>
+    <!-- ── Header ─────────────────────────────────────────── -->
+    <header>
+      <div class="header-inner">
+        <img
+          src="img/loreal-logo.png"
+          alt="L'Oréal"
+          class="logo"
+          onerror="this.style.display='none'"
+        />
+        <div class="header-text">
+          <h1>L'OR&Eacute;AL</h1>
+          <p class="tagline">Smart Routine &amp; Product Advisor</p>
+        </div>
+      </div>
+    </header>
 
-      <!------- Chat Area ------->
-      <main>
-        <section class="chatbox">
-          <div id="chatWindow" class="chat-window">
-            <!-- messages will be appended here via JS -->
+    <!-- ── Chat scroll area ───────────────────────────────── -->
+    <main id="main-scroll">
+      <div class="chat-container">
+        <!-- Latest user question banner — updates on each send, hidden at start -->
+        <div class="user-question-display hidden" id="user-question-display">
+          <span class="you-label">You:</span>
+          <span id="user-question-text"></span>
+        </div>
+
+        <!-- Messages injected here by script.js -->
+        <div class="chat-window" id="chat-window"></div>
+
+        <!-- Typing indicator (hidden until AI is responding) -->
+        <div class="typing-indicator hidden" id="typing-indicator">
+          <div class="avatar assistant-avatar">L</div>
+          <div class="bubble assistant-bubble typing-bubble">
+            <span></span><span></span><span></span>
           </div>
+        </div>
+      </div>
+    </main>
 
-          <form id="chatForm" class="chat-form">
-            <label for="userInput" class="visually-hidden">Message</label>
-            <input
-              id="userInput"
-              name="userInput"
-              type="text"
-              placeholder="Ask me about products or routines…"
-              autocomplete="off"
-              required
-            />
-            <button type="submit" id="sendBtn">
-              <span class="material-icons">send</span>
-              <span class="visually-hidden">Send</span>
-            </button>
-          </form>
-        </section>
-      </main>
-
-      <!------- Footer Links ------->
-      <footer class="site-footer">
-        <p>&copy; 2025 Company Name. All rights reserved.</p>
-        <nav>
-          <!-- These URLs are placeholders -->
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Use</a>
-          <a href="#">Contact</a>
-        </nav>
-      </footer>
+    <!-- ── Input bar (always visible, below the scroll area) ─ -->
+    <div class="input-bar">
+      <div class="input-inner">
+        <input
+          type="text"
+          id="user-input"
+          placeholder="Ask me about any L'Oréal product or routine…"
+          autocomplete="off"
+          aria-label="Your message"
+        />
+        <button id="send-btn" aria-label="Send message">
+          <!-- Right-arrow / send icon -->
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
+        </button>
+      </div>
     </div>
 
-    <!-- secrets.js can be removed when using Cloudflare Workers for API requests -->
-    <script src="secrets.js"></script>
+    <!-- ── Footer ─────────────────────────────────────────── -->
+    <footer>
+      <p>&copy; 2025 L'Or&eacute;al. All rights reserved.</p>
+      <nav>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+        <a href="#">Contact</a>
+      </nav>
+    </footer>
+
     <script src="script.js"></script>
   </body>
 </html>
