@@ -68,7 +68,7 @@ const PRODUCTS = [
     brand: "L'Oréal Paris",
     category: "Skincare",
     emoji: "",
-    image: 'img/bright-reveal-vitamin-c.jpg',
+    image: "img/bright-reveal-vitamin-c.jpg",
     tagline: "Brighten & reduce dark spots in 1 week",
     description:
       "Powered by 12% Pure Vitamin C, Niacinamide, and Salicylic Acid, this brightening serum visibly reduces dark spots and evens skin tone in as little as one week. Fragrance-free formula. Apply 3–4 drops each morning before your SPF moisturizer.",
